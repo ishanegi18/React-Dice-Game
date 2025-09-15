@@ -66,20 +66,34 @@ const generateRandomnumber = (min, max) => {
 };
 
 const Maincontainer = styled.main`
-padding-top: 20px;
-.top_section{
+  padding-top: 20px;
+
+  .top_section{
     display: flex;
     justify-content: space-around;
-    align-items: end;
-}
-.btns{
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
- gap :10px;
-  align-items: center;
-}
+    align-items: flex-end; /* was 'end'; use valid flex value */
+    gap: 20px; /* add spacing between children */
+  }
+
+  .btns{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* Responsive: stack on small screens */
+  @media (max-width: 768px) {
+    .top_section{
+      flex-direction: column;      /* side-by-side on desktop, stacked on mobile */
+      justify-content: center;
+      align-items: center;
+      text-align: center;          /* center inner text if any */
+      gap: 16px;
+    }
+  }
 `;
 
 

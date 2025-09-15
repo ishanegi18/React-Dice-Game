@@ -35,15 +35,16 @@ const NumberselectedContainer = styled.div`
 padding: 20px;
 display: flex;
 flex-direction: column;
-align-items: end;
+align-items: flex-end;
     .flex{
         display: flex;
+        flex-wrap: wrap;
         gap: 24px;
        
     }
     p{
         font-size: 24px;
-        font-weight: 700px;
+        font-weight: 700;
     }
 .error{
   color:red;
@@ -51,6 +52,20 @@ align-items: end;
    font-style: italic;
   padding: 10px;
 }
+
+  @media (max-width: 768px) {
+    .flex{
+      justify-content: center; /* center the grid on tablets/phones */
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    align-items: center; /* center whole section on very small screens */
+    .flex{
+      gap: 12px;
+    }
+  }
 `;
 
 
@@ -62,7 +77,19 @@ const Box = styled.div`
   display: grid;
   place-items: center;
   font-size: 24px;
-  font-weight: 500px;
+  font-weight: 500;
   background-color: ${(props) => (props.isSelected ? "black" : "white")};
   color: ${(props) => (props.isSelected ? "white" : "black")};
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
 `;
